@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="left-component">
+    <div class="top-component">
+      <img class="logo"src="images/logo.svg" alt="">
+      <img class="hero-mobile" src="images/hero-mobile.jpg" alt="">
+    </div>
+    <div class="bottom-component">
+      <h1 class="heading"><span>WE'RE</span> COMING SOON</h1>
+      <p>Hello fellow shoppers! We're currently building our new fashion store.
+      Add your email below to stay up-to-date with announcements and our launch deals.</p>
+    </div>
+    <div class="form-component">
+      <form class="email-form" name="myForm" onsubmit = "return(validate())">
+        <input type="text" name="email" value="" placeholder="Enter email address">
+        <img class="error-icon" id="err-icon" src="images/icon-error.svg" alt="">
+        <button type="submit" name="button">
+          <img class="arrow" src="images/icon-arrow.svg" alt="">
+        </button>
+      </form>
+    </div>
+    <div class="error">
+      <p id="err-msg"></p>
+    </div>
+    <footer>
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Natalia Tuszko</a>.
+      </p>
+    </footer>
+  </div>
+  <div class="right-component">
+    <img class="hero" src="images/hero-desktop.jpg" alt="">
+  </div>
+
+<script type="text/javascript">
+  function validate(){
+    if(document.myForm.email.value == "" ) {
+      document.getElementById("err-msg").innerHTML="Please provide an email address!";
+      document.getElementById("err-icon").style.display = "inline"
+      return false
+    }
+    else{
+      var emailID = document.myForm.email.value;
+      atpos = emailID.indexOf("@");
+      dotpos = emailID.lastIndexOf(".");
+
+        if (atpos < 1 || ( dotpos - atpos < 2 )) {
+          document.getElementById("err-msg").innerHTML="Please provide a proper email address!";
+          document.getElementById("err-icon").style.display = "inline";
+          return false
+         }
+
+    }
+    document.getElementById("err-msg").innerHTML="";
+    return true
+  }
+</script>
+
+</body>
+</html>
